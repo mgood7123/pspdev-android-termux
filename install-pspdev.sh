@@ -76,16 +76,16 @@ termux-fix-shebang $bin
 echo "making $bin executable"
 chmod +x $bin
 echo symlinking sh to bash
-$bin "rm /bin/sh; ln -s bash /bin/sh"
+./$bin "rm /bin/sh; ln -s bash /bin/sh"
 echo "installing packages for pspdev"
 echo "export PSPDEV=/PSPDEV-ANDROID" >> "$folder/root/.bashrc"
 echo "export PATH=/PSPDEV-ANDROID/bin:$PATH" >> "$folder/root/.bashrc"
 echo "installing packages for pspdev"
-$bin apt install sudo git libipt* python2 libdebuginfo*
+./$bin apt install sudo git libipt* python2 libdebuginfo*
 echo cloning pspdev
-$bin git clone https://www.github.com/pspdev/pspdev
+./$bin git clone https://www.github.com/pspdev/pspdev
 echo preparing pspdev
-$bin "cd pspdev ; ./prepare-debian-ubuntu.sh"
+./$bin "cd pspdev ; ./prepare-debian-ubuntu.sh"
 echo building pspdev
-$bin "cd pspdev ; ./build-all.sh"
+./$bin "cd pspdev ; ./build-all.sh"
 echo "You can now launch Ubuntu pspdev with the ./${bin} script"
