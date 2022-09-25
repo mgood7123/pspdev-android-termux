@@ -89,6 +89,5 @@ echo cloning pspdev &&
 ./$bin git clone https://www.github.com/pspdev/pspdev &&
 echo preparing pspdev &&
 ./$bin "cd pspdev ; ./prepare-debian-ubuntu.sh" &&
-echo building pspdev &&
-./$bin "cd pspdev ; ./build-all.sh" &&
 echo "You can now launch Ubuntu pspdev with the ./${bin} script"
+echo "after launching, please cd pspdev; ./build-all.sh"
