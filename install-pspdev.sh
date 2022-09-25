@@ -73,22 +73,22 @@ fi
 EOM
 
 echo "fixing shebang of $bin"
-termux-fix-shebang $bin
-echo "making $bin executable"
-chmod +x $bin
-echo symlinking sh to bash
-./$bin "rm /bin/sh; ln -s bash /bin/sh"
-echo "exporting needed environmental variables for pspdev"
-echo "export PSPDEV=/PSPDEV-ANDROID" >> "$folder/root/.bashrc"
-echo "export PATH=/PSPDEV-ANDROID/bin:$PATH" >> "$folder/root/.bashrc"
-echo "updating apt for pspdev"
-./$bin "apt update && apt upgrade"
-echo "installing packages for pspdev"
-./$bin apt install sudo git libipt* python2 libdebuginfo*
-echo cloning pspdev
-./$bin git clone https://www.github.com/pspdev/pspdev
-echo preparing pspdev
-./$bin "cd pspdev ; ./prepare-debian-ubuntu.sh"
-echo building pspdev
-./$bin "cd pspdev ; ./build-all.sh"
+termux-fix-shebang $bin &&
+echo "making $bin executable" &&
+chmod +x $bin &&
+echo symlinking sh to bash &&
+./$bin "rm /bin/sh; ln -s bash /bin/sh" &&
+echo "exporting needed environmental variables for pspdev" &&
+echo "export PSPDEV=/PSPDEV-ANDROID" >> "$folder/root/.bashrc" &&
+echo "export PATH=/PSPDEV-ANDROID/bin:$PATH" >> "$folder/root/.bashrc" &&
+echo "updating apt for pspdev" &&
+./$bin "apt update && apt install dialog && apt upgrade" &&
+echo "installing packages for pspdev" &&
+./$bin "apt install sudo git libipt* python2 libdebuginfo*" &&
+echo cloning pspdev &&
+./$bin git clone https://www.github.com/pspdev/pspdev &&
+echo preparing pspdev &&
+./$bin "cd pspdev ; ./prepare-debian-ubuntu.sh" &&
+echo building pspdev &&
+./$bin "cd pspdev ; ./build-all.sh" &&
 echo "You can now launch Ubuntu pspdev with the ./${bin} script"
