@@ -1,3 +1,4 @@
-/build/
-/pspdev/
-.DS_Store
+ubuntu-pspdev-fs
+start-ubuntu-pspdev.sh
+binds
+*.tar.gz
