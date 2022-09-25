@@ -22,7 +22,8 @@ if [ "$first" != 1 ];then
 		wget "https://cdimage.ubuntu.com/ubuntu-base/releases/${uv}/release/ubuntu-base-${uv}-base-${archurl}.tar.gz" -O "$tarball"
 	fi
 	cur=`pwd`
-  rm -rfv "$folder"
+echo removing any existing "$folder"
+  rm -rf "$folder"
 	mkdir -p "$folder"
 	cd "$folder"
 	echo "decompressing ubuntu image"
@@ -77,9 +78,11 @@ echo "making $bin executable"
 chmod +x $bin
 echo symlinking sh to bash
 ./$bin "rm /bin/sh; ln -s bash /bin/sh"
-echo "installing packages for pspdev"
+echo "exporting needed environmental variables for pspdev"
 echo "export PSPDEV=/PSPDEV-ANDROID" >> "$folder/root/.bashrc"
 echo "export PATH=/PSPDEV-ANDROID/bin:$PATH" >> "$folder/root/.bashrc"
+echo "updating apt for pspdev"
+./$bin "apt update && apt upgrade"
 echo "installing packages for pspdev"
 ./$bin apt install sudo git libipt* python2 libdebuginfo*
 echo cloning pspdev
