@@ -80,7 +80,7 @@ echo symlinking sh to bash &&
 ./$bin "rm /bin/sh; ln -s bash /bin/sh" &&
 echo "exporting needed environmental variables for pspdev" &&
 echo "export PSPDEV=/PSPDEV-ANDROID" >> "$folder/root/.bashrc" &&
-echo "export PATH=/PSPDEV-ANDROID/bin:$PATH" >> "$folder/root/.bashrc" &&
+echo "export PATH=/PSPDEV-ANDROID/bin:\$PATH" >> "$folder/root/.bashrc" &&
 echo "updating apt for pspdev" &&
 ./$bin "apt update && apt install -y dialog && apt upgrade -y" &&
 echo "installing packages for pspdev" &&
