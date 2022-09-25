@@ -82,9 +82,9 @@ echo "exporting needed environmental variables for pspdev" &&
 echo "export PSPDEV=/PSPDEV-ANDROID" >> "$folder/root/.bashrc" &&
 echo "export PATH=/PSPDEV-ANDROID/bin:$PATH" >> "$folder/root/.bashrc" &&
 echo "updating apt for pspdev" &&
-./$bin "apt update && apt install dialog && apt upgrade" &&
+./$bin "apt update && apt install -y dialog && apt upgrade -y" &&
 echo "installing packages for pspdev" &&
-./$bin "apt install sudo git libipt* python2 libdebuginfo*" &&
+./$bin "apt install -y sudo git libipt* python2 libdebuginfo*" &&
 echo cloning pspdev &&
 ./$bin git clone https://www.github.com/pspdev/pspdev &&
 echo preparing pspdev &&
