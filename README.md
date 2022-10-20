@@ -4,7 +4,7 @@
 
 please see [pspdev](https://github.com/pspdev/pspdev "pspdev")
 
-Main PSP Repo for building the whole `PSP Development` inside termux
+Main PSP Repo for downloading the whole `PSP Development` inside termux
 
 ### Android Termux
 ```bash
